@@ -1,1 +1,1 @@
-web: gunicorn nomination:nomination --log-file -
+web: gunicorn nomination:app --log-file -
