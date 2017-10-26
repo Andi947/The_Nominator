@@ -1,7 +1,12 @@
 import requests
 from flask import Flask, render_template, request
+import sys
+import logging
 
 app = Flask(__name__)
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 def send_simple_message(email, username, reason):
     return requests.post(
