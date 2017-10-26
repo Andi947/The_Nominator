@@ -6,3 +6,5 @@ A basic python-flask web application that allows a user to inputs:
 3) Reason - a reason why you're nominating them
 
 Once submitted, your nomination is sent to the e-mail address entered.
+
+Deployment using Heroku.
