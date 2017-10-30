@@ -1,40 +1,28 @@
-import requests
-from flask import Flask, render_template, request
-import sys
-import logging
+class Nomination(object):
 
-app = Flask(__name__)
+    userID_nominating = ""
+    nomineeID = ""
+    reason = ""
 
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+    def __init__(self, userID, nomineeID, reason):
+        self.userID_nominating = userID
+        self.nomineeID = nomineeID
+        self.reason = reason
 
-def send_simple_message(email, username, reason):
-    return requests.post(
-        "https://api.mailgun.net/v3/sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org/messages",
-        auth=("api", "key-95930168696abf549f49037e039116e0"),
-        data={"from": "AdminUser <mailgun@sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org>",
-              "to": [email],
-              "subject": "The Nominator - Your nomination",
-              "text": "Thank you for nominating!\n You nominated "+ str(username) + "\n because: " + str(reason)})
+    def get_userID(self):
+        return self.userID_nominating
 
-@app.route("/")
-def index():
-    # print "Hello Nominator!"
-    return render_template("index.html")
+    def get_nomineeID(self):
+        return self.nomineeID
 
-@app.route("/nomination", methods=["POST"])
-def nomination():
-    # print "Let's Nominate"
-    return render_template("nomination.html")
+    def get_reason(self):
+        return self.reason
 
-@app.route("/submission", methods=["POST"])
-def submission():
-    form_data = request.form
-    email = form_data["email"]
-    username = form_data["username"]
-    reason = form_data["reason"]
-    send_simple_message(email, username, reason)
-    return "You have submitted! Your e-mail is: " + email + ". You nominated " + username + " because: " + reason + "."
+    def set_userID(self, userID):
+        self.userID_nominating = userID
 
-if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    def set_nomineeID(self, nomineeID):
+        self.nomineeID = nomineeID
+
+    def set_reason(self, reason):
+        self.reason = str(reason)

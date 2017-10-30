@@ -9,13 +9,25 @@
 			</div>
 
 			<div class="nomination-form">
+
 				<div class="control-group">
-				<input type="email" class="nomination-field" value="" placeholder="email" name="email">
+				<input type="text" class="nomination-field" value="" placeholder="Your username" name="your_username">
+				<label class="nomination-field-icon fui-user" for="nomination-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="email" class="nomination-field" value="" placeholder="Your email" name="your_email">
 				<label class="nomination-field-icon fui-lock" for="nomination-email"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="text" class="nomination-field" value="" placeholder="username" name="username">
+				<select name="nominee" width="300px">
+					  <option value="" disabled selected>Select your nominee</option>
+				{% for o in option_list %}
+						<option value="{{o.userID}}">{{o.username}}</option>>
+				{% endfor %}
+				</select>
+				<!-- <input type="text" class="nomination-field" value="" placeholder="Person you are nominating" name="nominee_username"> -->
 				<label class="nomination-field-icon fui-user" for="nomination-name"></label>
 				</div>
 
