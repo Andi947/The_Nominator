@@ -88,7 +88,7 @@ def submission():
 @app.route("/results", methods=["POST"])
 def view_nomination_results():
 
-        return 0
+    return 0
 
 @app.route("/logout")
 def logout():
