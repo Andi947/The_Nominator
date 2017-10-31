@@ -37,7 +37,6 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    login = False
     if login == False:
         return render_template('index.html')
     else:
@@ -51,7 +50,8 @@ def login():
 def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
-    login = True
+    if login == False:
+        login = True
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
