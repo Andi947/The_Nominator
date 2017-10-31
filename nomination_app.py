@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
+from os import *
 import sys
 import logging
 from sqlalchemy.orm import sessionmaker
@@ -22,6 +23,8 @@ calculate = CalculatorResult()
 
 nomineeID_count = []
 nominee_counts = {}
+
+key = os.random(24)
 
 def send_simple_message(email, username, reason):
     return requests.post(
@@ -116,5 +119,5 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)
+    app.secret_key = key
     app.run(debug=True,use_reloader=True)
