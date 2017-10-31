@@ -1,11 +1,8 @@
 import requests
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
-from os import *
-from flask.ext.session import Session
 import sys
 import logging
-from sqlalchemy.orm import sessionmaker
 import users_data
 from users_data import *
 import nominations_data
@@ -13,8 +10,6 @@ from nominations_data import *
 from result_calculator import *
 
 app = Flask(__name__)
-
-sess = Session()
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -26,6 +21,8 @@ calculate = CalculatorResult()
 
 nomineeID_count = []
 nominee_counts = {}
+
+Login == False
 
 def send_simple_message(email, username, reason):
     return requests.post(
@@ -40,7 +37,7 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    if not session.get('logged_in'):
+    if login == False:
         return render_template('index.html')
     else:
         return render_template('user.html')
@@ -53,7 +50,7 @@ def login():
 def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
-    session['logged_in'] = True
+    Login = True
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
@@ -120,8 +117,4 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-    app.secret_key = os.random(12)
-
-    sess.init_app(app)
-    
     app.run(debug=True, use_reloader=True)
