@@ -1,4 +1,3 @@
-from configurations.wsgi import get_wsgi_application 
 import requests
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
