@@ -11,7 +11,7 @@ from nominations_data import *
 from result_calculator import *
 
 app = Flask(__name__)
-app.secret_key = os.random(24)
+app.secret_key = 'hwjejfiHhhJdjHg73839'
 app.config['SESSION_TYPE'] = 'filesystem'
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
