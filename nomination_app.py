@@ -14,9 +14,6 @@ from result_calculator import *
 app = Flask(__name__)
 app.secret_key = os.random(12)
 
-login_manager = flask_login.LoginManager()
-login_manager.init_app(app)
-
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 
