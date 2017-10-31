@@ -1,4 +1,5 @@
 from collections import defaultdict
+import unicodedata
 
 class CalculatorResult(object):
 
@@ -7,7 +8,8 @@ class CalculatorResult(object):
     def list_of_nomineeIDs(self, object):
         nomineeID_list = []
         for i in object:
-            nominee = i.get_nomineeID()
+            nominee = i.nomineeID
+            nominee = int(nominee)
             nomineeID_list.append(nominee)
         return nomineeID_list
 

@@ -16,8 +16,7 @@ app.logger.setLevel(logging.ERROR)
 
 users = UsersData().get_nominator_users()
 usersList = UsersData().get_list()
-nominations = NominationsData().nominator_nominations
-data = NominationsData()
+nominationList = NominationsData().get_list()
 calculate = CalculatorResult()
 
 nomineeID_count = []
@@ -69,6 +68,7 @@ def submission():
     your_username = form_data["your_username"]
     your_email = form_data["your_email"]
     nominee_ID = form_data["nominee"]
+    print nominee_ID
     reason = form_data["reason"]
     userID = ""
     _hasNext = None
@@ -77,18 +77,37 @@ def submission():
             userID = i.userID
             print userID
         else:
-            userID = len(users)-1
+            userID = len(usersList)-1
     new_nomination = Nomination(userID, nominee_ID, reason)
-    nominations.append(new_nomination)
-    print nominations
+    nominationList.append(new_nomination)
+    print nominationList
     # send_simple_message(email, username, reason)
     print "You have submitted " + your_username + "! Your e-mail is: " + your_email + ". You nominated " + nominee_ID + " because: " + reason + "."
     return render_template("submission.html")
 
 @app.route("/results", methods=["POST"])
 def view_nomination_results():
+    print nominationList
 
-    return 0
+    nomineeID_list = calculate.list_of_nomineeIDs(nominationList)
+    print nomineeID_list
+
+    nominee_nominationTally = calculate.calculate_nominee_nominations(nomineeID_list)
+    print nominee_nominationTally
+
+    winning_userID = calculate.calculate_winning_nomineeID(nominee_nominationTally)
+    print winning_userID
+
+    winner_name = calculate.winnerID(users, winning_userID)
+    print winner_name
+
+    number_of_votes = calculate.no_of_votes(nominee_nominationTally)
+    print number_of_votes
+
+    total_votes = calculate.total_votes(nomineeID_list)
+    print total_votes
+
+    return "Congratulation to " + str(winner_name) + " who got a total of " + str(number_of_votes) + " out of " + str(total_votes) + " votes!"
 
 @app.route("/logout")
 def logout():

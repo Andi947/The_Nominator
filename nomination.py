@@ -1,7 +1,7 @@
 class Nomination(object):
 
-    userID_nominating = ""
-    nomineeID = ""
+    userID_nominating = 0
+    nomineeID = 0
     reason = ""
 
     def __init__(self, userID, nomineeID, reason):
