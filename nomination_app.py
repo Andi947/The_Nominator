@@ -50,11 +50,16 @@ def login():
 @app.route("/user", methods=["POST"])
 def user():
     POST_USERNAME = str(request.form['username'])
+    print POST_USERNAME + "username"
     POST_PASSWORD = str(request.form['password'])
-    if (POST_USERNAME != None) and (POST_PASSWORD != None):
+    print POST_PASSWORD + "password"
+    if (len(POST_USERNAME) > 0) and (len(POST_PASSWORD) > 0):
         login_variable = True
+        print "Batman is here"
+        return render_template('user.html')
     else:
         login_variable = False
+        return render_template('index.html')
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
@@ -62,7 +67,6 @@ def user():
             #     return session['logged_in']
             # else:
             #     flash('wrong password!')
-    return home()
 
 @app.route("/nomination", methods=["POST"])
 def nomination_options():
