@@ -76,12 +76,14 @@ def nomination_options():
 def submission():
     form_data = request.form
     your_username = form_data["your_username"]
+    print your_username
     your_email = form_data["your_email"]
+    print your_email
     nominee_ID = form_data["nominee"]
     print nominee_ID
     reason = form_data["reason"]
+    print reason
     userID = ""
-    _hasNext = None
     for i in usersList:
         if your_username == i.username:
             userID = i.userID
@@ -89,6 +91,7 @@ def submission():
         else:
             userID = len(usersList)-1
     new_nomination = Nomination(userID, nominee_ID, reason)
+    print new_nomination
     nominationList.append(new_nomination)
     print nominationList
     # send_simple_message(email, username, reason)
