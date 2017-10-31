@@ -1,1 +1,1 @@
-web: gunicorn nomination_app:app --log-file --preload
+web: gunicorn nomination_app:app --preload
