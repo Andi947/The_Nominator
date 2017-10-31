@@ -12,6 +12,10 @@ from nominations_data import *
 from result_calculator import *
 
 app = Flask(__name__)
+app.secret_key = os.random(12)
+
+login_manager = flask_login.LoginManager()
+login_manager.init_app(app)
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -23,8 +27,6 @@ calculate = CalculatorResult()
 
 nomineeID_count = []
 nominee_counts = {}
-
-key = os.random(24)
 
 def send_simple_message(email, username, reason):
     return requests.post(
@@ -119,5 +121,5 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-    app.secret_key = key
-    app.run(debug=True,use_reloader=True)
+    # app.secret_key = os.random(12)
+    app.run(debug=True) #use_reloader=True
