@@ -11,6 +11,8 @@ from nominations_data import *
 from result_calculator import *
 
 app = Flask(__name__)
+app.secret_key = os.random(24)
+app.config['SESSION_TYPE'] = 'filesystem'
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -122,8 +124,7 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-    app.secret_key = os.random(24)
-    app.config['SESSION_TYPE'] = 'filesystem'
+
 
     sess.init_app(app)
 
