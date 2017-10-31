@@ -22,7 +22,7 @@ calculate = CalculatorResult()
 nomineeID_count = []
 nominee_counts = {}
 
-Login == False
+login == False
 
 def send_simple_message(email, username, reason):
     return requests.post(
@@ -50,7 +50,7 @@ def login():
 def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
-    Login = True
+    login = True
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
