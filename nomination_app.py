@@ -51,7 +51,7 @@ def login():
 def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
-    if (POST_USERNAME != None) && (POST_PASSWORD != None):
+    if (POST_USERNAME != None) and (POST_PASSWORD != None):
         login = True
     else:
         login = False
