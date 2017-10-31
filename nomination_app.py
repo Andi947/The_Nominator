@@ -22,7 +22,7 @@ calculate = CalculatorResult()
 nomineeID_count = []
 nominee_counts = {}
 
-login == False
+login = False
 
 def send_simple_message(email, username, reason):
     return requests.post(
