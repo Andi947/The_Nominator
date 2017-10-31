@@ -2,6 +2,7 @@ import requests
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
 from os import *
+from flask.ext.session import Session
 import sys
 import logging
 from sqlalchemy.orm import sessionmaker
@@ -12,7 +13,8 @@ from nominations_data import *
 from result_calculator import *
 
 app = Flask(__name__)
-app.secret_key = os.random(12)
+
+sess = Session()
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -118,5 +120,8 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-    # app.secret_key = os.random(12)
-    app.run(debug=True) #use_reloader=True
+    app.secret_key = os.random(12)
+
+    sess.init_app(app)
+    
+    app.run(debug=True, use_reloader=True)
