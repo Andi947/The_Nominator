@@ -1,4 +1,5 @@
 import requests
+from requests import Request, Session
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
 import sys
@@ -10,8 +11,6 @@ from nominations_data import *
 from result_calculator import *
 
 app = Flask(__name__)
-
-sess = Session()
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
