@@ -11,6 +11,8 @@ from result_calculator import *
 
 app = Flask(__name__)
 
+sess = Session()
+
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 
@@ -38,7 +40,7 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    if login_variable == False:
+    if not session.get('logged_in'):
         return render_template('index.html')
     else:
         return render_template('user.html')
@@ -50,16 +52,9 @@ def login():
 @app.route("/user", methods=["POST"])
 def user():
     POST_USERNAME = str(request.form['username'])
-    print POST_USERNAME + "username"
     POST_PASSWORD = str(request.form['password'])
-    print POST_PASSWORD + "password"
-    if (len(POST_USERNAME) > 0) and (len(POST_PASSWORD) > 0):
-        login_variable = True
-        print "Batman is here"
-        return render_template('user.html')
-    else:
-        login_variable = False
-        return render_template('index.html')
+    session['logged_in'] = True
+    return home()
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
@@ -128,4 +123,9 @@ def logout():
     return home()
 
 if __name__ == "__main__":
+    app.secret_key = os.random(24)
+    app.config['SESSION_TYPE'] = 'filesystem'
+
+    sess.init_app(app)
+
     app.run(debug=True, use_reloader=True)
