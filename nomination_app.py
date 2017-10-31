@@ -3,6 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, session, abo
 import os
 import sys
 import logging
+from sqlalchemy.orm import sessionmaker
 import users_data
 from users_data import *
 import nominations_data
@@ -48,7 +49,6 @@ def login():
 def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
-    s = Session()
     session['logged_in'] = True
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
