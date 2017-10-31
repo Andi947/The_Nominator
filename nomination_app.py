@@ -38,7 +38,7 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    if login = False:
+    if login == False:
         return render_template('index.html')
     else:
         return render_template('user.html')
