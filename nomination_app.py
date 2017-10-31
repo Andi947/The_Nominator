@@ -22,8 +22,8 @@ calculate = CalculatorResult()
 nomineeID_count = []
 nominee_counts = {}
 
-i = 0
-login = False
+
+login_variable = False
 
 def send_simple_message(email, username, reason):
     return requests.post(
@@ -38,7 +38,7 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    if login == False:
+    if login_variable == False:
         return render_template('index.html')
     else:
         return render_template('user.html')
@@ -52,9 +52,9 @@ def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
     if (POST_USERNAME != None) and (POST_PASSWORD != None):
-        login = True
+        login_variable = True
     else:
-        login = False
+        login_variable = False
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
