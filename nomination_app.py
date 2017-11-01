@@ -25,9 +25,6 @@ calculate = CalculatorResult()
 nomineeID_count = []
 nominee_counts = {}
 
-
-login_variable = False
-
 def send_simple_message(email, username, reason):
     return requests.post(
         "https://api.mailgun.net/v3/sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org/messages",
@@ -54,7 +51,11 @@ def login():
 def user():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
-    session['logged_in'] = True
+    
+    if (len(POST_USERNAME > 0) and (len(POST_PASSWORD) > 0)):
+        session['logged_in'] = True
+    else: flash('wrong password')
+
     return home()
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
