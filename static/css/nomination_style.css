@@ -76,3 +76,10 @@ box-shadow: none;
   display: block;
 	margin-top: 12px;
 }
+
+.logoutLblPos{
+
+   position:fixed;
+   right:10px;
+   top:5px;
+}

@@ -38,11 +38,10 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    return render_template('index.html')
-    # if not session.get('logged_in'):
-    #     return render_template('index.html')
-    # else:
-    #     return render_template('user.html')
+    if not session.get('logged_in'):
+        return render_template('index.html')
+    else:
+        return render_template('user.html')
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -54,9 +53,10 @@ def user():
     POST_PASSWORD = str(request.form['password'])
 
     if (len(POST_USERNAME > 0) and (len(POST_PASSWORD) > 0)):
-        return render_template('user.html')
-    else: flash('wrong password')
-        return render_template("login.html")
+        session.get('logged_in') = True
+    else:
+        flash('wrong password')
+    return home()
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
     #         if user[i].get_user_password == POST_PASSWORD:
@@ -125,7 +125,6 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-
 
     sess.init_app(app)
 
