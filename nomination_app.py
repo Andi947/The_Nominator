@@ -21,6 +21,7 @@ users = UsersData().get_nominator_users()
 usersList = UsersData().get_list()
 nominationList = NominationsData().get_list()
 calculate = CalculatorResult()
+results = [1,2,3]
 
 nomineeID_count = []
 nominee_counts = {}
@@ -50,12 +51,19 @@ def login():
 @app.route("/user", methods=["POST"])
 def user():
     POST_USERNAME = str(request.form['username'])
+    print POST_USERNAME
+    username = len(POST_USERNAME)
+    print username
     POST_PASSWORD = str(request.form['password'])
+    print POST_PASSWORD
+    password = len(POST_USERNAME)
+    print password
 
-    if (len(POST_USERNAME > 0) and (len(POST_PASSWORD) > 0)):
-        session.get['logged_in'] = True
+    if (username > 0) and (password > 0):
+        session['logged_in'] = True
     else:
         flash('wrong password')
+
     return home()
     # for i in users:
     #     if users[i].get_username() == POST_USERNAME:
@@ -110,22 +118,26 @@ def view_nomination_results():
 
     winner_name = calculate.winnerID(users, winning_userID)
     print winner_name
+    results[0] = winner_name
 
     number_of_votes = calculate.no_of_votes(nominee_nominationTally)
     print number_of_votes
+    results[1] = number_of_votes
 
     total_votes = calculate.total_votes(nomineeID_list)
     print total_votes
+    results[2] = total_votes
 
-    return "Congratulation to " + str(winner_name) + " who got a total of " + str(number_of_votes) + " out of " + str(total_votes) + " votes!"
+    return render_template('results.html', results_list = results)
 
 @app.route("/logout")
 def logout():
-    session['logged_in'] = False
-    return home()
+    session.pop('logged_in', None)
+    flash('You were logged out.')
+    return redirect(url_for('home'))
 
 if __name__ == "__main__":
-
-    sess.init_app(app)
+    #
+    # sess.init_app(app)
 
     app.run(debug=True, use_reloader=True)

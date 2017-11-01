@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/css/nomination_style.css" type="text/css">
+<link rel="stylesheet" href="/static/css/nomination_style_new.css" type="text/css">
 {% block body %}
 
 <form method="POST" action="/submission">
@@ -11,17 +11,17 @@
 			<div class="nomination-form">
 
 				<div class="control-group">
-				<input type="text" class="nomination-field" value="" placeholder="Your username" name="your_username">
+				<input type="text" class="nomination-field" value="" placeholder="Your username" name="your_username"  required="required">
 				<label class="nomination-field-icon fui-user" for="nomination-name"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="email" class="nomination-field" value="" placeholder="Your email" name="your_email">
+				<input type="email" class="nomination-field" value="" placeholder="Your email" name="your_email"  required="required">
 				<label class="nomination-field-icon fui-lock" for="nomination-email"></label>
 				</div>
 
 				<div class="control-group">
-				<select name="nominee" width="300px">
+				<select name="nominee" width="5000px"  required="required">
 					  <option value="" disabled selected>Select your nominee</option>
 				{% for o in option_list %}
 						<option value="{{o.userID}}">{{o.username}}</option>>
@@ -32,21 +32,15 @@
 				</div>
 
 				<div class="control-group">
-				<input type="text" class="nomination-field" value="" placeholder="reason" name="reason">
+				<input type="text" class="nomination-field" value="" placeholder="reason" name="reason"  required="required">
 				<label class="nomination-field-icon fui-lock" for="nomination-reason"></label>
 				</div>
 
                 <input type="submit" value="Submit" class="btn btn-primary btn-large btn-block" >
 			    <br>
 			</div>
+			<a href="{{ url_for('logout') }}">Logout</a></li>
 		</div>
 	</div>
 </form>
-
-<form align="right" name="form1" method="post" action="/logout">
-  <label class="logoutLblPos">
-  <input name="submit2" type="submit" id="submit2" value="log out">
-  </label>
-</form>
-
 {% endblock %}

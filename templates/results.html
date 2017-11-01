@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/static/css/index_style.css" type="text/css">
+{% block body %}
+
+<form method="POST">
+	<div class="results">
+		<div class="results-page">
+			<div class="app-title">
+				<h1> <b>And the Winner is.... </b></h1>
+					<h3>Congratulations to {{results_list[0]}} who got a total of {{results_list[1]}} out of {{results_list[2]}} votes! </h3>
+			</div>
+        <a href="{{ url_for('logout') }}">Log out</a>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endblock %}
