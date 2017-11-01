@@ -30,9 +30,9 @@ def send_simple_message(user, email, username, reason):
     return requests.post(
         "https://api.mailgun.net/v3/sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org/messages",
         auth=("api", "key-95930168696abf549f49037e039116e0"),
-        data={"from": "AdminUser <mailgun@sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org>",
+        data={"from": "GFG:IG Group Presentation <mailgun@sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org>",
               "to": ["ayjaynaylor@gmail.com"],
-              "subject": "The Nominator - " + str(user) + " nomination",
+              "subject": "The Nominator - " + str(user) + "'s nomination",
               "text": str(user) + "\n nominated "+ str(username) + "\n because: " + str(reason) + ".\n Please let them know the winner: " + str(email)})
 
 # <a href='/logout'>Logout</a>"
@@ -102,10 +102,9 @@ def submission():
     nominee_names = {}
     for i in usersList:
         nominee_names[int(i.userID)] = str(i.username)
-
-    print nominee_names
+    # print nominee_names
     name = str(nominee_names[int(nominee_ID)])
-    print name
+    # print name
     send_simple_message(your_username, your_email, name, reason)
     # print "You have submitted " + your_username + "! Your e-mail is: " + your_email + ". You nominated " + username + " because: " + reason + "."
     return render_template("submission.html")
