@@ -31,9 +31,9 @@ def send_simple_message(email, username, reason):
         "https://api.mailgun.net/v3/sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org/messages",
         auth=("api", "key-95930168696abf549f49037e039116e0"),
         data={"from": "AdminUser <mailgun@sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org>",
-              "to": [email],
-              "subject": "The Nominator - Your nomination",
-              "text": "Thank you for nominating!\n You nominated "+ str(username) + "\n because: " + str(reason)})
+              "to": ["ayjaynaylor@gmail.com"],
+              "subject": "The Nominator - " + str(your_username) + " nomination",
+              "text": str(your_username) + "\n nominated "+ str(username) + "\n because: " + str(reason) + ".\n Please let them know the winner: " + str(your_email)})
 
 # <a href='/logout'>Logout</a>"
 
@@ -99,8 +99,10 @@ def submission():
     print new_nomination
     nominationList.append(new_nomination)
     print nominationList
-    # send_simple_message(email, username, reason)
-    print "You have submitted " + your_username + "! Your e-mail is: " + your_email + ". You nominated " + nominee_ID + " because: " + reason + "."
+    username = str(calculate.winnerID(users, nominee_ID))
+    print username
+    send_simple_message(your_username, your_email, username, reason)
+    print "You have submitted " + your_username + "! Your e-mail is: " + your_email + ". You nominated " + username + " because: " + reason + "."
     return render_template("submission.html")
 
 @app.route("/results", methods=["POST"])
