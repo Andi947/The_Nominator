@@ -38,7 +38,7 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    if not session.get('logged_in'):
+    if not session.get['logged_in']:
         return render_template('index.html')
     else:
         return render_template('user.html')
@@ -53,7 +53,7 @@ def user():
     POST_PASSWORD = str(request.form['password'])
 
     if (len(POST_USERNAME > 0) and (len(POST_PASSWORD) > 0)):
-        session.get('logged_in') = True
+        session.get['logged_in'] = True
     else:
         flash('wrong password')
     return home()
