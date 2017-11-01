@@ -38,7 +38,7 @@ def send_simple_message(email, username, reason):
 
 @app.route("/")
 def home():
-    if not session.get['logged_in']:
+    if not session.get('logged_in'):
         return render_template('index.html')
     else:
         return render_template('user.html')
