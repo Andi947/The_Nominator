@@ -3,8 +3,6 @@ import unicodedata
 
 class CalculatorResult(object):
 
-    # nomineeID_list = []
-    # winner = ""
     def list_of_nomineeIDs(self, object):
         nomineeID_list = []
         for i in object:
@@ -36,7 +34,7 @@ class CalculatorResult(object):
     def winnerID(self, object, int):
         winner = ""
         for i in object:
-            user = object[i]
+            user = i
             userID = user.get_userID()
             if userID == int:
                 winner = user.get_username()

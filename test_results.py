@@ -1,11 +1,9 @@
-import users_data
 from users_data import *
-import nominations_data
 from nominations_data import *
 from result_calculator import *
 
-users = UsersData().get_nominator_users()
-nominations = NominationsData().get_nominator_nominations()
+users = UsersData().get_list()
+nominations = NominationsData().get_list()
 calculate = CalculatorResult()
 
 nomineeID_count = []

@@ -24,7 +24,7 @@
 				<select name="nominee" width="5000px"  required="required">
 					  <option value="" disabled selected>Select your nominee</option>
 				{% for o in option_list %}
-						<option value="{{o.userID}}">{{o.username}}</option>>
+						<option value="{{o.userID}}">{{o.username.title()}}</option>>
 				{% endfor %}
 				</select>
 				<!-- <input type="text" class="nomination-field" value="" placeholder="Person you are nominating" name="nominee_username"> -->
