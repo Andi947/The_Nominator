@@ -22,9 +22,15 @@ padding: 20px;
 border-radius: 5px
 }
 
+.index-page{
+	background-color: #FFFFFF;
+	padding: 20px;
+	border-radius: 5px
+}
+
 .app-title {
-text-align: center;
-color: #FFFAFA;
+	text-align: center;
+	color: #777;
 }
 
 .login-form {
