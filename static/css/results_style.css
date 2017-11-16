@@ -16,7 +16,7 @@ width: 800px
 }
 
 .results{
-background-color: #FFFFFF;
+background-color: #0f86c7;
 padding: 20px;
 border-radius: 5px
 }
@@ -29,7 +29,6 @@ border-radius: 5px
 
 .app-title {
 text-align: center;
-/*color: #0f86c7*/
 color: #777;
 }
 
