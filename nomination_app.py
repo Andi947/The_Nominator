@@ -31,7 +31,7 @@ def send_simple_message(user, email, username, reason):
         auth=("api", "key-95930168696abf549f49037e039116e0"),
         data={"from": "CFG:IG Group Presentation <mailgun@sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org>",
               "to": ["ayjaynaylor@gmail.com"],
-              "subject": "The Nominator - " + str(user) + "'s nomination",
+              "subject": "The Nominator - " + str(user).title() + "'s nomination",
               "text": str(user).title() + "\nnominated "+ str(username) + "\nbecause: " + str(reason) + ".\nPlease let them know the winner: " + str(email)})
 
 # routes to the landing page/ home page / login page. It reads whether a session
