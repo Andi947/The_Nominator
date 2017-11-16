@@ -3,7 +3,7 @@ box-sizing: border-box;
 }
 
 *:focus {
-	outline: none;
+outline: none;
 }
 
 @font-face {
@@ -14,8 +14,8 @@ src: local('International Super Hero Out'), url('intsho.woff') format('woff');
 }
 
 h1 {
-	font-family: 'International Super Hero Out';
-	font-size: 40px;
+font-family: 'International Super Hero Out';
+font-size: 40px;
 }
 
 body {

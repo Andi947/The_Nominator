@@ -3,7 +3,7 @@ box-sizing: border-box;
 }
 
 *:focus {
-	outline: none;
+outline: none;
 }
 
 @font-face {
@@ -21,22 +21,22 @@ src: local('International Super Hero Exp'), url('intshe.woff') format('woff');
 }
 
 h1 {
-	font-family: 'International Super Hero Exp';
-	color: #023659;
-	font-size: 30px;
+font-family: 'International Super Hero Exp';
+color: #023659;
+font-size: 30px;
 }
 
 h2 {
-	font-family: 'International Super Hero Out';
-	color: #0f86c7;
-	font-size: 70px;
+font-family: 'International Super Hero Out';
+color: #0f86c7;
+font-size: 70px;
 
 }
 
 h3 {
-	font-family: 'International Super Hero Exp';
-	color: #023659;
-	font-size: 30px;
+font-family: 'International Super Hero Exp';
+color: #023659;
+font-size: 30px;
 }
 
 
