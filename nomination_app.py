@@ -32,7 +32,7 @@ def send_simple_message(user, email, username, reason):
         data={"from": "CFG:IG Group Presentation <mailgun@sandboxd1d501b9d63946c485beeb236fa2107a.mailgun.org>",
               "to": ["ayjaynaylor@gmail.com"],
               "subject": "The Nominator - " + str(user).title() + "'s nomination",
-              "text": str(user).title() + "\nnominated "+ str(username).title() + "\nbecause: " + str(reason) + ".\nPlease let them know the winner: " + str(email)})
+              "text": str(user).title() + "\nnominated: "+ str(username).title() + "\nbecause: " + str(reason) + ".\nPlease let them know the winner: " + str(email)})
 
 # routes to the landing page/ home page / login page. It reads whether a session
 # has been created. If false, renders index page that links to login page. If
