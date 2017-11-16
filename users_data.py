@@ -1,9 +1,11 @@
 from user import *
 
-# Object that contains the static user data used in the program. Going forward, this will be where the Users Database logic will be where users can be added to or accessed from the DB
+# Object that contains the static user data used in the program. Going forward,
+# this will be where the Database logic will go where users can be added
+# to or accessed from the Database
 
 class UsersData(object):
-    # empty list generated
+    # empty list created
     usersList = []
 
     # Each static user is created as a User Object
