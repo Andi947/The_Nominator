@@ -5,11 +5,43 @@ box-sizing: border-box;
 *:focus {
 	outline: none;
 }
+
+@font-face {
+font-family: 'International Super Hero Out';
+font-style: normal;
+font-weight: normal;
+src: local('International Super Hero Out'), url('intsho.woff') format('woff');
+}
+
+@font-face {
+font-family: 'International Super Hero Exp';
+font-style: normal;
+font-weight: normal;
+src: local('International Super Hero Exp'), url('intshe.woff') format('woff');
+}
+
+h1 {
+	font-family: 'International Super Hero Exp';
+	color: #023659;
+	font-size: 30px;
+}
+
+h2 {
+	font-family: 'International Super Hero Out';
+	color: #0f86c7;
+	font-size: 70px;
+
+}
+
+h3 {
+	font-family: 'International Super Hero Exp';
+	color: #023659;
+	font-size: 30px;
+}
+
+
 body {
-font-family: Arial;
 background-color: #0f86c7;
-background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e7e7e7' fill-opacity='0.33' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-padding: 50px;
 margin: auto;
 text-align: center;
 width: 800px
@@ -29,7 +61,7 @@ border-radius: 5px
 
 .app-title {
 text-align: center;
-color: #777;
+/*color: #023659;*/
 }
 
 .control-group {

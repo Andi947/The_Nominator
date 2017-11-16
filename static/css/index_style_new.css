@@ -5,10 +5,26 @@ box-sizing: border-box;
 *:focus {
 	outline: none;
 }
+
+@font-face {
+font-family: 'International Super Hero Out';
+font-style: bolder;
+font-weight: normal;
+src: local('International Super Hero Out'), url('intsho.woff') format('woff');
+}
+
+h1 {
+	font-family: 'International Super Hero Out';
+	font-size: 40px;
+}
+
+h3 {
+	font-family: Arial
+}
+
 body {
-font-family: Arial;
 background-color: #0f86c7;
-background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e7e7e7' fill-opacity='0.33' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+/*background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e7e7e7' fill-opacity='0.33' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");*/
 padding: 50px;
 margin: auto;
 text-align: center;
@@ -18,21 +34,22 @@ width: 800px;
 margin: 20px auto;
 width: 300px;
 }
-.login-screen {
-background-color: #FFFFFF;
+.container {
+background-color: #0f86c7;
 padding: 20px;
 border-radius: 5px
 }
 
 .index-page{
-	background-color: #FFF;
+	background-color: #FFFFFF;
 	padding: 20px;
 	border-radius: 5px
 }
 
 .app-title {
 	text-align: center;
-	color: #777;
+	color: #023659;
+	background-color: #FFFFFF;
 }
 
 .login-form {

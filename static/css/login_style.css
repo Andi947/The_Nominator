@@ -5,8 +5,20 @@ box-sizing: border-box;
 *:focus {
 	outline: none;
 }
+
+@font-face {
+font-family: 'International Super Hero Out';
+font-style: normal;
+font-weight: normal;
+src: local('International Super Hero Out'), url('intsho.woff') format('woff');
+}
+
+h1 {
+	font-family: 'International Super Hero Out';
+	font-size: 40px;
+}
+
 body {
-font-family: Arial;
 background-color: #3498DB;
 padding: 50px;
 }
@@ -22,7 +34,7 @@ border-radius: 5px
 
 .app-title {
 text-align: center;
-color: #777;
+color: #023659;
 }
 
 .login-form {

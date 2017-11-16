@@ -5,8 +5,9 @@
 	<div class="results">
 		<div class="results-page">
 			<div class="app-title">
-				<h1> <b>And the Winner is.... </b></h1>
-					<h3>Congratulations to {{results_list[0].title()}} who got a total of {{results_list[1]}} out of {{results_list[2]}} votes! </h3>
+				<h1> And the Winner is.... </h1>
+					<h2>{{results_list[0].title()}}</h2>
+						<h3>who got a total of {{results_list[1]}} out of {{results_list[2]}} votes! </h3>
 			</div>
         <a href="{{ url_for('logout') }}">Log out</a>
 				<br>
